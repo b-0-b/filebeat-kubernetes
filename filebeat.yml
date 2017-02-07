@@ -15,6 +15,10 @@ filebeat.prospectors:
 output.logstash:
     hosts: ${LOGSTASH_HOSTS:?No logstash host configured. Use env var LOGSTASH_HOSTS to set hosts.}
     timeout: 15
+    protocol: https
+    tls:
+      certificate_authorities:
+      - /etc/filebeat/log0.elk0.byf0.bwcom.net.crt
 
 logging.level: ${LOG_LEVEL:error}
 
