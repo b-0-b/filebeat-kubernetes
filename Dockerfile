@@ -1,10 +1,8 @@
-FROM jessie-slim
+FROM debian:jessie-slim
 
-MAINTAINER Amanpreet Singh <aps.sids@gmail.com>
+MAINTAINER Anders Bomberg <anders@brandwatch.com>
 
 ENV FILEBEAT_VERSION 5.2.0
-ENV LOGSTASH_HOSTS log0.elk0.byf0.bwcom.net
-ENV LOG_LEVEL info
 
 RUN apt-get update && \
     apt-get -y install wget && \
@@ -17,7 +15,7 @@ RUN apt-get update && \
     apt-get -y autoremove
 
 COPY filebeat.yml /etc/filebeat/
-COPY log0.elk0.byf0.bwcom.net.crt /etc/filebeat/log0.elk0.byf0.bwcom.net.crt 
+COPY elk0.intermediate.cert.pem /etc/filebeat/elk0.intermediate.cert.pem
 
 
 CMD ["/usr/local/bin/filebeat", "-e", "-c", "/etc/filebeat/filebeat.yml"]

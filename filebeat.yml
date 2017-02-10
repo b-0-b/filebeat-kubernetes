@@ -13,12 +13,12 @@ filebeat.prospectors:
   document_type: kube-logs
 
 output.logstash:
-    hosts: ${LOGSTASH_HOSTS:?No logstash host configured. Use env var LOGSTASH_HOSTS to set hosts.}
+    hosts:
+      - sn1565.elk0.byf0.bwcom.net:5044
     timeout: 15
-    protocol: https
-    tls:
+    ssl:
       certificate_authorities:
-      - /etc/filebeat/log0.elk0.byf0.bwcom.net.crt
+      - /etc/filebeat/elk0.intermediate.cert.pem
 
-logging.level: ${LOG_LEVEL:error}
+logging.level: info
 
