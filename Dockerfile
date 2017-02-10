@@ -16,6 +16,7 @@ RUN apt-get update && \
 
 COPY filebeat.yml /etc/filebeat/
 COPY elk0.intermediate.cert.pem /etc/filebeat/elk0.intermediate.cert.pem
+COPY logger.sh /logger.sh
 
 
 CMD ["/usr/local/bin/filebeat", "-e", "-c", "/etc/filebeat/filebeat.yml"]
