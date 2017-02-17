@@ -14,11 +14,11 @@ filebeat.prospectors:
 
 output.logstash:
     hosts:
-      - sn1565.elk0.byf0.bwcom.net:5044
+      - mg110c.stage.brandwatch.net:5044
     timeout: 15
     ssl:
       certificate_authorities:
-      - /etc/filebeat/elk0.intermediate.cert.pem
+      - /etc/filebeat/ca-chain.cert.pem
 
 logging.level: info
 

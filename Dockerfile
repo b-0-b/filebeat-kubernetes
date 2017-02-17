@@ -15,7 +15,7 @@ RUN apt-get update && \
     apt-get -y autoremove
 
 COPY filebeat.yml /etc/filebeat/
-COPY elk0.intermediate.cert.pem /etc/filebeat/elk0.intermediate.cert.pem
+COPY ca-chain.cert.pem /etc/filebeat/ca-chain.cert.pem
 COPY logger.sh /logger.sh
 
 
